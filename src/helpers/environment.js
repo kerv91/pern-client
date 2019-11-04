@@ -9,7 +9,7 @@ switch(window.location.hostname) {
     //Deployed version of React App
     case 'kerv-doggo-client.herokuapp.com':
     //Full URL of deployed API 
-    APIURL = 'https://kerv-doggo-server.herokuapp.com/';
+    APIURL = 'https://kerv-doggo-server.herokuapp.com';
 }
 
 export default APIURL;
