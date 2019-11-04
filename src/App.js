@@ -1,26 +1,60 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
+import { Button } from 'reactstrap';
 import './App.css';
+import Sitebar from './home/Navbar';
+import Auth from './auth/Auth';
+import WorkoutIndex from './workouts/WorkoutIndex';
+import Sidebar from './components/site/Sidebar'
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
 
-function App() {
+
+
+const App = (props) => {
+
+  const [sessionToken, setSessionToken] = useState('');
+
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken('')
+  }
+
+useEffect (() => {
+  if(localStorage.getItem('token')){
+    setSessionToken(localStorage.getItem('token'));
+  }
+}, [])
+
+const updateToken = (newToken) => {
+  localStorage.setItem('token', newToken);
+  setSessionToken(newToken);
+  console.log(sessionToken);
+}
+
+const protectedViews = () => {
+  return (sessionToken === localStorage.getItem('token') ? <Router><Sidebar token={sessionToken}/></Router>
+  : <Auth updateToken={updateToken}/>)
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Sitebar clearToken={clearToken}/>
+      {/* <Auth updateToken={updateToken}/> */}
+      {protectedViews()}
+      <WorkoutIndex token={sessionToken}/>
     </div>
   );
 }
+
+// return (
+//   <div>
+//     <Router>
+//       <Sidebar />
+//     </Router>
+//   </div>
+// );
+// }
 
 export default App;
