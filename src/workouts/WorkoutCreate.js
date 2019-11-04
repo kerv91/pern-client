@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 
 const WorkoutCreate = (props) => {
@@ -9,7 +10,7 @@ const WorkoutCreate = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(name, rating)
-        fetch('http://localhost:3000/dog/userbars', {
+        fetch(`${APIURL}/dog/userbars`, {
             method:'POST',
             body: JSON.stringify({name: name, rating: rating}),
             headers: new Headers({

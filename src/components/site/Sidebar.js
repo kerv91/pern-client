@@ -14,12 +14,12 @@ import State from '../concepts/State';
 import Effects from '../concepts/Effects';
 
 
-const Sidebar = () => (
+const Sidebar = (props) => (
 
     <div className="sidebar">
         <div className="sidebar-list-styling">
             <ul className="sidebar-list list-unstyled">
-                <li><Link to="/">Home</Link></li>
+            <Link to="/"><img src={'https://img.icons8.com/cotton/64/000000/home--v2.png'} alt="Home" /></Link>
                 <li><Link to="/jsxrules">DT</Link></li>           
                 <li><Link to="/state">FS</Link></li>
                 <li><Link to="/effects">BR</Link></li>
