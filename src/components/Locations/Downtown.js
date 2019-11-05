@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JSXRules = () => {
+const Downtown = () => {
     return (
         <div className="main">
             <div className="mainDiv">
@@ -12,5 +12,5 @@ const JSXRules = () => {
 };
 
 
-export default JSXRules;
+export default Downtown;
 

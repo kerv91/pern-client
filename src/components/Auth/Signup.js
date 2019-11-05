@@ -1,29 +1,29 @@
 import React, {useState} from 'react';
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
-import APIURL from '../helpers/environment'
+import APIURL from '../../helpers/environment'
 
-const Login = (props) => {
+const Signup = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-const handleSubmit = (event) => {
+let handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`${APIURL}/dog/login`, {
+    fetch(`${APIURL}/dog/user/`, {
         method: 'POST',
         body: JSON.stringify({user:{username: username, password: password}}),
         headers: new Headers({
-            'Content-Type':'application/json'
+            'Content-Type': 'application/json'
         })
     }).then(
         (response) => response.json()
     ).then((data) => {
-        props.updateToken(data.sessionToken);
+        props.updateToken(data.sessionToken)
     })
 }
 
     return(
         <div>
-            <h1>Login</h1>
+            <h1>Sign Up</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="username">Username</Label>
@@ -33,10 +33,10 @@ const handleSubmit = (event) => {
                     <Label htmlFor="password">Password</Label>
                     <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
                 </FormGroup>
-                <Button type="submit">Login</Button>
+                <Button type="submit">Signup</Button>
             </Form>
         </div>
     )
 }
 
-export default Login;
+export default Signup;

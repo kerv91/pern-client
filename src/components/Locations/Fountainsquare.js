@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const State = () => {
+const Fountainsquare = () => {
 
     return (
         <div className="main">
@@ -12,5 +12,5 @@ const State = () => {
     );
 };
 
-export default State; 
+export default Fountainsquare; 
 

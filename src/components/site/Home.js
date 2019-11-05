@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {Jumbotron, Button} from 'reactstrap';
+import {Jumbotron, Button} from 'reactstrap'
+import BarTable from '../Bars/BarTable';
 
 const Home = () => {
     return (

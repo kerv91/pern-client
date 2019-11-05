@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import { Button } from 'reactstrap';
 import './App.css';
-import Sitebar from './home/Navbar';
-import Auth from './auth/Auth';
-import WorkoutIndex from './workouts/WorkoutIndex';
-import Sidebar from './components/site/Sidebar'
+import Sitebar from './components/Home/Navbar';
+import Auth from './components/Auth/Auth';
+import BarIndex from './components/Bars/BarIndex';
+import Sidebar from './components/Site/Sidebar'
 import {
   BrowserRouter as Router,
 } from 'react-router-dom';
@@ -43,9 +43,9 @@ const protectedViews = () => {
       <Sitebar clearToken={clearToken}/>
       {/* <Auth updateToken={updateToken}/> */}
       {protectedViews()}
-      <WorkoutIndex style={{
+      {/* <BarIndex style={{
         backgroundColor: "black"
-      }}token={sessionToken}/>`
+      }}token={sessionToken}/>` */}
     </div>
   );
 }

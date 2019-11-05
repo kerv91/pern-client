@@ -1,5 +1,5 @@
 import React from 'react';
-import WorkoutIndex from '../../workouts/WorkoutIndex';
+import BarIndex from '../Bars/BarIndex';
 import { Table } from 'reactstrap';
 
 const Resources = (props) => {
@@ -9,7 +9,7 @@ const Resources = (props) => {
                 <h1>Add a new spot!</h1>
                 <p>Table that has been commented out that people will input additional bars</p>
                 <Table dark>
-                <WorkoutIndex/>
+                <BarIndex/>
                 </Table>
             </div>
         </div>

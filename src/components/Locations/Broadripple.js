@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const Effects = () => {
+const Broadripple = () => {
     return (
         <div className="main">
             <div className="mainDiv">
@@ -11,4 +11,4 @@ const Effects = () => {
     );
 };
 
-export default Effects;
+export default Broadripple;
