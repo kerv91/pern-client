@@ -43,7 +43,9 @@ const protectedViews = () => {
       <Sitebar clearToken={clearToken}/>
       {/* <Auth updateToken={updateToken}/> */}
       {protectedViews()}
-      <WorkoutIndex token={sessionToken}/>
+      <WorkoutIndex style={{
+        backgroundColor: "black"
+      }}token={sessionToken}/>`
     </div>
   );
 }

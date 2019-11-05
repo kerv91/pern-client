@@ -24,8 +24,8 @@ const WorkoutTable = (props) => {
                     <td>{workout.rating}</td>
                     {/* <td>{workout.definition}</td> */}
                     <td>
-                        <Button color="warning">Update</Button>
-                        <Button color="danger" onClick={() => {deleteWorkout(workout)}}>Delete</Button>
+                        <Button outline color="success">Update</Button>
+                        <Button outline color="danger" onClick={() => {deleteWorkout(workout)}}>Delete</Button>
                     </td>
                 </tr>
             )

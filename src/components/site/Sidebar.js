@@ -18,9 +18,14 @@ const Sidebar = (props) => (
 
     <div className="sidebar">
         <div className="sidebar-list-styling">
-            <ul className="sidebar-list list-unstyled">
-            <Link to="/"><img src={'https://img.icons8.com/cotton/64/000000/home--v2.png'} alt="Home" /></Link>
-                <li><Link to="/jsxrules">DT</Link></li>
+                <Link to="/"><img style={{
+                    height: '54px',
+                    width: '54px'
+                }}src={'https://i.imgur.com/3tmv26f.png'} alt="Home" /></Link>
+                <Link to="/jsxrules"><img style={{
+                    height: '50px',
+                    width: '50px'
+                }}src={'https://i.imgur.com/SFTVewq.png'} alt="Downtown" /></Link>
                 <Link to="/state"><img style={{
                     height: '50px',
                     width: '50px'
@@ -29,9 +34,12 @@ const Sidebar = (props) => (
                     height: '50px',
                     width: '50px'
                 }}src={'https://www.run317.com/wp-content/uploads/sites/6/2015/03/RUN317_Icon_Races-02-300x300@2x.png'} alt="Fountain Square" /></Link>           
-                <li><Link to="/state"></Link></li>
-                <li><Link to="/resources">Tell Us</Link></li>
-            </ul>
+                <Link to="/state"></Link>
+                <Link to="/effects"><img style={{
+                    height: '50px',
+                    width: '50px'
+                }}src={'https://i.imgur.com/8UuGZO8.png'} alt="Add" /></Link>           
+                <Link to="/resources"></Link>
         </div>
         <div className="sidebar-route">
             <Switch>
