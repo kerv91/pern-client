@@ -27,7 +27,7 @@ const BarIndex = (props) => {
     
     useEffect(() => {
         fetchBars();
-    }, [])
+    }, [bars])
 
     const editUpdateBar = (bar) => {
         setBarToUpdate(bar);
@@ -51,12 +51,13 @@ const BarIndex = (props) => {
                 <Col md="10">
                     <BarTable bars={props.bars} editUpdateBar={editUpdateBar} updateOn={updateOn} fetchBars={props.fetchBars} token={props.token}/>
                 </Col>
-                    {updateActive ? <BarEdit barToUpdate={barToUpdate}
-                    updateOff={updateOff} token={props.token} fetchBars={fetchBars}/> : <></>}
+                    {updateActive ? <BarEdit barToUpdate={barToUpdate} updateOff={updateOff} token={props.token} fetchBars={fetchBars}/> : <></>}
                 <Col md="1" />
             </Row>
         </Container>
     )
 }
+
+//IDEALLY FETCH BAR UDPATE AGAIN? ANYTHING ADDED AS 1 CRASHES
 
 export default BarIndex;

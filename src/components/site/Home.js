@@ -6,7 +6,7 @@ const Home = (props) => {
     console.log(props)
 
     return (
-        <div className="main">
+        <div classname="main">
             <div className="mainDiv">
             <Jumbotron>
                 <h1 className="display-3">DogGo is here to help decide where to go grab a drink with your beloved canine BFF</h1>

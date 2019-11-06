@@ -27,7 +27,8 @@ const BarEdit = (props) => {
             <ModalBody>
                 <Form onSubmit={barUpdate}>
                     <Label htmlFor="rating">Edit Rating</Label>
-                    <Input type="select" name="rating" value={editRating} onChange={(e) => setEditRating(e.target.value)}>
+                    <Input type="select" name="rating" required value={editRating} onChange={(e) => setEditRating(e.target.value)}>
+                    <option></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

@@ -42,7 +42,8 @@ const BarCreate = (props) => {
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="rating"/>
-                            <Input type="select" name="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
+                            <Input type="select" name="rating"  value={rating} required onChange={(e) => setRating(e.target.value) }>
+                                <option></option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

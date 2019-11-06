@@ -36,7 +36,6 @@ const FSMapper = () => {
 
 return(
     <>
-    <h3>FS Bars</h3>
     <Table dark>
         <thead>
             <tr>

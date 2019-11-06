@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import BRTable from '../maps/brmap';
 
 const Broadripple = () => {
     return (
         <div className="main">
             <div className="mainDiv">
                 <h1>Broad Ripple</h1>
-                <p>BR bars that will import here</p>
+                <BRTable/>
             </div>
         </div>
     );

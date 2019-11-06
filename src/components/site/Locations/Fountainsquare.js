@@ -7,7 +7,6 @@ const Fountainsquare = () => {
         <div className="main">
             <div className="mainDiv">
                 <h1>Fountain Square</h1>
-                <p>FS bars that will import here</p>
                 <FSTable/>
             </div>
         </div>
