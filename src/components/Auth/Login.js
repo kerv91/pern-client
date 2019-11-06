@@ -27,11 +27,11 @@ const handleSubmit = (event) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="username">Username</Label>
-                    <Input onChange={(e) => setUsername(e.target.value)} name="username" value={username}/>
+                    <Input type="email" onChange={(e) => setUsername(e.target.value)} name="username" placeholder="Email" value={username}/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
+                    <Input type="password" onChange={(e) => setPassword(e.target.value)} name="password" placeholder='Min 6 characters' pattern="(?=.*[a-z]).{6,12}" value={password}/>
                 </FormGroup>
                 <Button type="submit">Login</Button>
             </Form>

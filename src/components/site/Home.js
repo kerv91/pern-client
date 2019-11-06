@@ -1,8 +1,10 @@
-import React from "react";
-import {Jumbotron, Button} from 'reactstrap'
-import BarTable from '../Bars/BarTable';
+import React, {useState, useEffect} from "react";
+import {Jumbotron, Button} from 'reactstrap';
+import BarIndex from './Bars/BarIndex';
 
-const Home = () => {
+const Home = (props) => {
+    console.log(props)
+
     return (
         <div className="main">
             <div className="mainDiv">
@@ -17,6 +19,7 @@ const Home = () => {
             </p>
             </Jumbotron>
             </div>
+            <BarIndex bars={props.bars} setBars={props.setBars} fetchBars={props.fetchBars} token={props.token} />
         </div>
     );
 };

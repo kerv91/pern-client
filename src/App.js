@@ -4,7 +4,6 @@ import { Button } from 'reactstrap';
 import './App.css';
 import Sitebar from './components/Home/Navbar';
 import Auth from './components/Auth/Auth';
-import BarIndex from './components/Bars/BarIndex';
 import Sidebar from './components/Site/Sidebar'
 import {
   BrowserRouter as Router,

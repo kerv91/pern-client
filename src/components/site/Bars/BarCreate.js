@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {Button, Form, FormGroup, Label, Input, Container, Row, Col} from 'reactstrap';
 import BarTable from './BarTable';
-import APIURL from '../../helpers/environment';
+import APIURL from '../../../helpers/environment';
 
 
 const BarCreate = (props) => {
     const [name, setName] = useState('');
     const [rating, setRating] = useState('');
+
+    console.log(props)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,7 +25,7 @@ const BarCreate = (props) => {
             console.log(logData);
             setName('');
             setRating('');
-            props.fetchWorkouts();
+            props.fetchBars();
         })
     }
     return(

@@ -3,10 +3,12 @@ import {Container, Row, Col} from 'reactstrap';
 import BarCreate from './BarCreate';
 import BarTable from './BarTable';
 import BarEdit from './BarEdit';
-import APIURL from '../../helpers/environment';
+import APIURL from '../../../helpers/environment';
 
 const BarIndex = (props) => {
-    const [bars, setBars] = useState([]);
+    console.log(props)
+
+    const [bars, setBars] = useState([]); 
     const [updateActive, setUpdateActive] = useState(false);
     const [barToUpdate, setBarToUpdate] = useState({});
 
@@ -18,24 +20,40 @@ const BarIndex = (props) => {
                 'Authorization': props.token
             })
         }).then( (res) => res.json())
-        .then((logData) => {
-            setBars(logData)
-            console.log(logData)
+        .then((barData) => {
+            setBars(barData)
         })
     }
+    
     useEffect(() => {
         fetchBars();
     }, [])
+
+    const editUpdateBar = (bar) => {
+        setBarToUpdate(bar);
+        console.log(bar);
+    }
+
+    const updateOn = () => {
+        setUpdateActive(true);
+    }
+
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
+
+
 
     return(
         <Container>
             <Row>
                 <Col md="1" />
                 <Col md="10">
-                    <BarTable bars={bars} fetchBars={fetchBars} token={props.token}/>
+                    <BarTable bars={props.bars} editUpdateBar={editUpdateBar} updateOn={updateOn} fetchBars={props.fetchBars} token={props.token}/>
                 </Col>
+                    {updateActive ? <BarEdit barToUpdate={barToUpdate}
+                    updateOff={updateOff} token={props.token} fetchBars={fetchBars}/> : <></>}
                 <Col md="1" />
-
             </Row>
         </Container>
     )

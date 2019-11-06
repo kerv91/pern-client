@@ -1,31 +1,31 @@
 import React from 'react';
 import {Table, Button} from 'reactstrap';
-import APIURL from '../../helpers/environment';
+import APIURL from '../../../helpers/environment';
 
-const WorkoutTable = (props) => {
+const BarTable = (props) => {
 
-    const deleteWorkout = (workout) => {
-        fetch(`${APIURL}/dog/${workout.id}`, {
+    const deleteBar = (bar) => {
+        fetch(`${APIURL}/dog/${bar.id}`, {
         method: 'DELETE',
         headers: new Headers({
             'Content-Type': 'application/json',
             'Authorization': props.token
         })
     })
-    .then(() => props.fetchWorkouts())
+    .then(() => props.fetchBars())
     }
 
-    const workoutMapper = () => {
-        return props.workouts.map((workout, index) => {
+    const barMapper = () => {
+        return props.bars.map((bar, index) => {
             return(
                 <tr key={index}>
                     <th scope="row"></th>
-                    <td>{workout.name}</td>
-                    <td>{workout.rating}</td>
+                    <td>{bar.name}</td>
+                    <td>{bar.rating}</td>
                     {/* <td>{workout.definition}</td> */}
                     <td>
-                        <Button outline color="success">Update</Button>
-                        <Button outline color="danger" onClick={() => {deleteWorkout(workout)}}>Delete</Button>
+                        <Button outline color="success" onClick={() => {props.editUpdateBar(bar); props.updateOn()}}>Update</Button>
+                        <Button outline color="danger" onClick={() => {deleteBar(bar)}}>Delete</Button>
                     </td>
                 </tr>
             )
@@ -33,7 +33,7 @@ const WorkoutTable = (props) => {
     }
     return(
         <>
-        <h3>Bar's I've Visted</h3>
+        <h3>Bar's Reviewed</h3>
         <hr/>
         <Table style={{
             color: 'white',
@@ -47,11 +47,11 @@ const WorkoutTable = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {workoutMapper()}
+                {barMapper()}
             </tbody>
         </Table>
         </>
     )
 }
 
-export default WorkoutTable;
+export default BarTable;

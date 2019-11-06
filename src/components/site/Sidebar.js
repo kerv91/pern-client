@@ -1,20 +1,45 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
 import {
     Route, 
     Link,
     Switch
-} from 'react-router-dom'
-import WorkoutCreate from './Home'
+} from 'react-router-dom';
 
 import Home from './Home';
-import BarCreate from '../Bars/BarCreate';
-import Downtown from '../Locations/Downtown';
-import Fountainsquare from '../Locations/Fountainsquare';
-import Broadripple from '../Locations/Broadripple';
+import BarCreate from './Bars/BarCreate';
+import Downtown from './Locations/Downtown';
+import Fountainsquare from './Locations/Fountainsquare';
+import Broadripple from './Locations/Broadripple';
+
+import APIURL from '../../helpers/environment';
 
 
-const Sidebar = (props) => (
+const Sidebar = (props) => {
 
+    console.log(props)
+
+    const [bars, setBars] = useState([]);
+
+    const fetchBars = () => {
+        fetch(`${APIURL}/dog/userbars`, {
+            method: 'GET',
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            })
+        }).then( (res) => res.json())
+        .then((logData) => {
+            setBars(logData)
+            console.log(logData)
+        })
+    }
+    useEffect(() => {
+        fetchBars();
+    }, [])
+
+    //WILL POPULATE 
+
+    return(
     <div className="sidebar">
         <div className="sidebar-list-styling">
                 <Link to="/"><img style={{
@@ -40,15 +65,17 @@ const Sidebar = (props) => (
         </div>
         <div className="sidebar-route">
             <Switch>
-                <Route exact path="/"><Home /></Route>
+                <Route exact path="/"><Home bars={bars} setBars={setBars} fetchBars={fetchBars} token={props.token}/></Route>
                 <Route exact path="/downtown"><Downtown /></Route>
                 <Route exact path="/fountainsquare"><Fountainsquare /></Route>
                 <Route exact path="/broadripple"><Broadripple /></Route>
-                <Route exact path="/barcreate"><BarCreate token={props.token}/></Route>
+                <Route exact path="/barcreate"><BarCreate fetchBars={fetchBars} token={props.token}/></Route>
             </Switch>
         </div>
     </div>
-)
+    )
+}
+
 
 
 export default Sidebar;
