@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 import './App.css';
 import Sitebar from './components/Home/Navbar';
 import Auth from './components/Auth/Auth';
-import Sidebar from './components/Site/Sidebar'
+import Sidebar from './components/Site/Sidebar';
 import {
   BrowserRouter as Router,
 } from 'react-router-dom';
